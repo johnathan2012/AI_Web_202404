@@ -3,6 +3,7 @@ from pydantic import BaseModel,Field,RootModel,field_validator,field_serializer
 import streamlit as st
 import source
 from source import Root
+import pandas as pd
 
 
 try:
@@ -21,12 +22,15 @@ else:
         sarea_name = st.session_state.sarea
         #st.write(sarea_name)        
         display_data = []
+
         for item in data:
             if item['行政區'] == sarea_name:
                 display_data.append(item)
         with tableContainer:
             # st.table(data=display_data)
-            st.dataframe(data=display_data)
+            # st.dataframe(data=display_data)
+            df1=pd.Dataframe(data=display_data)
+            st.dataframe(data=df1)
 
 
 
