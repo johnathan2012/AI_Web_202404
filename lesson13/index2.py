@@ -28,7 +28,7 @@ else:
         st.title("新北市youbike各行政區站點資料")
             
         
-        col1, col2 = st.columns([1, 6])
+        col1, col2 = st.columns([2, 6])
         with col2:
             df1 = pd.DataFrame(display_data,
                             columns=['站點名稱','總數','可借','可還'])
