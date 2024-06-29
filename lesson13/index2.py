@@ -29,9 +29,17 @@ else:
         with tableContainer:
             # st.table(data=display_data)
             # st.dataframe(data=display_data)
-            df1=pd.DataFrame(data=display_data,columns=['站點名稱','日期時間','地址','總數','可借','可還'])
-            st.dataframe(df1)
+             df1 = pd.DataFrame(display_data,
+                               columns=['站點名稱','日期時間','地址','總數','可借','可還'])
+             st.dataframe(data=df1)
 
+             df2 = pd.DataFrame(display_data,
+                               columns=['站點名稱','總數','可借'])
+            
+             st.scatter_chart(df2,
+                             x='站點名稱',
+                             y='總數',
+                             size='可借')
 
 
     with st.sidebar:
