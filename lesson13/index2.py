@@ -9,23 +9,30 @@ try:
     data_str = source.download_youbike()
 except Exception as e:
     st.error(e)
-
 else:
     root = Root.model_validate_json(data_str)
     data = root.model_dump()
-
     areas:list[str] = list(set(map(lambda value:value['行政區'],data)))
 
-    # def area_change():
-    #     print("Hello!")
+    st.title("台北市youbike各行政區站點資料")
+    tableContainer = st.container()
+    
+    def area_change():
+        sarea_name = st.session_state.sarea
+        #st.write(sarea_name)        
+        display_data = []
+        for item in data:
+            if item['行政區'] == sarea_name:
+                display_data.append(item)
+        with tableContainer:
+            st.table(data=display_data)
 
-    # option = st.selectbox("請選擇行政區",areas)
-    # st.write("您選擇:", option)
+
 
     with st.sidebar:
-        st.selectbox(":orange[請選擇行政區]",options=areas,on_change=print(":blue[請選擇行政區]"),key='sarea')
-        st.session_state
-
+        st.selectbox(":orange[請選擇行政區域:]",options=areas,on_change=area_change,key='sarea')
+    
+  
 
 
 
