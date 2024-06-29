@@ -41,6 +41,13 @@ else:
                              y='總數',
                              size='可借')
 
+             df3 = pd.DataFrame(display_data,
+                               columns=['站點名稱','總數','可還'])
+            
+             st.scatter_chart(df3,
+                             x='站點名稱',
+                             y='總數',
+                             size='可還')
 
     with st.sidebar:
         st.selectbox(":orange[請選擇行政區域:]",options=areas,on_change=area_change,key='sarea')
