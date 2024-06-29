@@ -15,8 +15,8 @@ else:
     data = root.model_dump()
     areas:list[str] = list(set(map(lambda value:value['行政區'],data)))
 
-    st.title("台北市youbike各行政區站點資料")
-    tableContainer = st.container()
+
+#    tableContainer = st.container()
     
     def area_change():
         sarea_name = st.session_state.sarea
@@ -27,14 +27,18 @@ else:
             if item['行政區'] == sarea_name:
                 display_data.append(item)
 
+        st.title("台北市youbike各行政區站點資料")
+
         st.subheader(sarea_name)
         col1,col2 = st.columns([3,2])
 
+   
         with col1:
              df1 = pd.DataFrame(display_data,
                                columns=['站點名稱','日期時間','地址','總數','可借','可還'])
              st.dataframe(data=df1)
 
+        tableContainer=st.container(border=flase)
         with tableContainer:
             # st.table(data=display_data)
             # st.dataframe(data=display_data)
