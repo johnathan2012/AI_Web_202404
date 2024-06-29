@@ -29,7 +29,7 @@ else:
         with tableContainer:
             # st.table(data=display_data)
             # st.dataframe(data=display_data)
-            df1=pd.DataFrame(data=display_data,columns=['站點名稱','日期時間','地址','總數','可借','可還']))
+            df1=pd.DataFrame(data=display_data,columns=['站點名稱','日期時間','地址','總數','可借','可還'])
             st.dataframe(df1)
 
 
