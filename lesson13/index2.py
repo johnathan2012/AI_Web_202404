@@ -29,8 +29,8 @@ else:
         with tableContainer:
             # st.table(data=display_data)
             # st.dataframe(data=display_data)
-            df1=pd.Dataframe(data=display_data)
-            st.dataframe(data=df1)
+            df1=pd.DataFrame(data=display_data)
+            st.dataframe(df1)
 
 
 
