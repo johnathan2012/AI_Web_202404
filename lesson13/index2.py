@@ -25,7 +25,8 @@ else:
             if item['行政區'] == sarea_name:
                 display_data.append(item)
         with tableContainer:
-            st.table(data=display_data)
+            # st.table(data=display_data)
+            st.dataframe(data=display_data)
 
 
 
