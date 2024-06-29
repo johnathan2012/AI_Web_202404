@@ -16,14 +16,14 @@ else:
 
     areas:list[str] = list(set(map(lambda value:value['行政區'],data)))
 
-    def area_change():
-        print("Hello!")
+    # def area_change():
+    #     print("Hello!")
 
     # option = st.selectbox("請選擇行政區",areas)
     # st.write("您選擇:", option)
 
     with st.sidebar:
-        st.selectbox(":orange[請選擇行政區]",options=areas,on_change=area_change,key='sarea')
+        st.selectbox(":orange[請選擇行政區]",options=areas,on_change=print(":blue[請選擇行政區]"),key='sarea')
         st.session_state
 
 
